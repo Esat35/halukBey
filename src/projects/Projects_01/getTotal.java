@@ -22,33 +22,29 @@ public class getTotal {
 
      */
 
+    /*
+    3 tane pozitif String verildiğinde
+    sayısal olmayan tüm karakterleri kaldırın.
+    Stringleri int e çevirin
+    ve total print edin
 
-     /*
-     3 tane pozitif String verildiğinde
-     sayısal olmayan tüm karakterleri kaldırın.
-     Stringleri int e çevirin
-     ve total print edin
+        Ornek:
+       String num1 = "$15";
+       String num2 = "$20";
+       String num3 = "$30";
+       output ----> 65; olmali
 
-         Ornek:
-        String num1 = "$15";
-        String num2 = "$20";
-        String num3 = "$30";
-        output ----> 65; olmali
+       NOT : Eğer output 0 dan küçük ise outputu -1 e cevir
+$15
 
-        NOT : Eğer output 0 dan küçük ise outputu -1 e cevir
-
-
-
-
-
-    */
+   */
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
 
         String allElements = scanner.nextLine();
 
-        String[] elements = allElements.split(" ");
+        String[] elements = allElements.split("");
 
         String num1 = elements[0];
 
@@ -62,27 +58,16 @@ public class getTotal {
         // kodu burdan başlatın ve bu satırdan önceki kodlari değiştirmeyin
         // String num1,num2,num3 kullanın
 
+        int i1 = Integer.parseInt(num1.replaceAll("[$A-Za-z]", ""));
+        int i2 = Integer.parseInt(num2.replaceAll("[$A-Za-z]", ""));
+        int i3 = Integer.parseInt(num3.replaceAll("[$A-Za-z]", ""));
+        int total = i1 + i2 + i3;
 
-
-
-
-
-        int i1=Integer.parseInt(num1.replaceAll("[$A-Za-z]", ""));
-        int i2=Integer.parseInt(num2.replaceAll("[$A-Za-z]", ""));
-        int i3=Integer.parseInt(num3.replaceAll("[$A-Za-z]", ""));
-        int total=i1+i2+i3;
-
-        if(total>=0) {
+        if (total >= 0) {
             System.out.println(total);
+        } else {
+            System.out.println(-1);
         }
-
-
-else{
-           System.out.println(-1);
-       }
-
-        }
-
-
     }
+}
 
