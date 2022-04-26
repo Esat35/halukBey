@@ -1,4 +1,4 @@
-package JavaProjects.P06_KahveMakinesi.Kahve_makinesi01;
+package JavaProjects.P06_KahveMakinesi.KahveMakinesi01;
 
 import java.util.Scanner;
 
