@@ -56,7 +56,7 @@ public class HalukMarket {
             double kg = scan.nextDouble();
             sepeteEkle(urunNo, kg);
             toplamFiyat = Math.round(sepeteYazdir());
-            System.out.println("Alış verişe devam etmek istermisiniz:");
+            System.out.println("Alış verişe devam etmek istermisiniz? (E/H)");
             devam = scan.next();
         } while (devam.equalsIgnoreCase("e"));
         odeme(toplamFiyat);
@@ -67,7 +67,7 @@ public class HalukMarket {
         System.out.println("===\t ======== \t========");
 
         for (int i = 0; i < urunler.size(); i++) {
-            System.out.println(" " + i + "\t" + urunler.get(i) + "\t\t" + fiyatlar.get(i));
+            System.out.printf("%-3s  %-10s  %4s \n",  i , urunler.get(i) , fiyatlar.get(i));
         }
     }
 
