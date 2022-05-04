@@ -2,6 +2,7 @@ package proje_benim_calısmam.kitapYonetimi01;
 
 
 import java.util.HashMap;
+import java.util.InputMismatchException;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -51,11 +52,12 @@ public class Islemler {
                 System.out.println("hatalı işlem secimi yaptınız. Tekrar deneyiniz...");
                 Thread.sleep(2000);
                 menu();
+                break;
         }
     }
 
     private static void tumKitaplarıListele() {
-        System.out.println("==========  TÜM KİTAPLAR LİSTESİ    ==========");
+        System.out.println("=============    TÜM KİTAPLAR LİSTESİ     =============");
         System.out.println(" K.NO   KİTAP ADI         YAZAR ADI    B.YILI    FİYAT  ");
         System.out.println("--------------------------------------------------------");
         for (Kitaplar each:kitaplarMap.values()) {
@@ -162,14 +164,16 @@ public class Islemler {
 
         try {
             goruntulenecekKitapNo = scan.nextInt();
-        } catch (IllegalArgumentException e) {
+
+            if (kitaplarMap.containsKey(goruntulenecekKitapNo)) {
+                System.out.println(kitaplarMap.get(goruntulenecekKitapNo));
+            } else System.out.println("aradıgınız kıtap lıstemızde yok...");
+            Thread.sleep(2000);
+        } catch (InputMismatchException e) {
             System.out.println("Kitap numarası rakamlardan olusmalı...");
+            Thread.sleep(2000);
         }
 
-        if (kitaplarMap.containsKey(goruntulenecekKitapNo)) {
-            System.out.println(kitaplarMap.get(goruntulenecekKitapNo));
-        } else System.out.println("aradıgınız kıtap lıstemızde yok...");
-        Thread.sleep(2000);
     }
 
     private static void kitapEkle() throws InterruptedException {
@@ -188,15 +192,18 @@ public class Islemler {
         double eklenecekKitapFiyati = 0;
         try {
             eklenecekKitapFiyati = scan.nextDouble();
-        } catch (IllegalArgumentException e) {
+            Kitaplar kitap = new Kitaplar(kitapNo, eklenecekKitapAdi, eklenecekKitapYazari, eklenecekKitapFiyati, eklenecekKitapBaskiYili);
+            kitaplarMap.put(kitapNo, kitap);
+            System.out.println(" Kitap ekleme işlemi basarı ıle gerceklesti...");
+            kitapNo++;
+            Thread.sleep(2000);
+        } catch (InputMismatchException e) {
             System.out.println("Fiyati yanlış gırdınız. Lutfen rakam kullanın...");
+            Thread.sleep(2000);
+
         }
 
-        Kitaplar kitap = new Kitaplar(kitapNo, eklenecekKitapAdi, eklenecekKitapYazari, eklenecekKitapFiyati, eklenecekKitapBaskiYili);
-        kitaplarMap.put(kitapNo, kitap);
-        System.out.println(" Kitap ekleme işlemi basarı ıle gerceklesti...");
-        kitapNo++;
-        Thread.sleep(2000);
+
     }
 
     private static void cıkıs() {

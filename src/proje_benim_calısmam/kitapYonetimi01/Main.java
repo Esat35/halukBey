@@ -27,8 +27,9 @@ public class Main {
          * 4-kullanicidn kitap adi
          * yazar adi ve fiyat bilgileri istenmeli
          */
-        // Kitapcı_KitapEkle kitap = new Kitapcı_KitapEkle();
-		Islemler.menu();
+
+
+        Islemler.menu();
 
     }
 }
