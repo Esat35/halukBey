@@ -19,7 +19,7 @@ public class Kisi {
     }
 
     public void setAdSoyad(String adSoyad) {
-        this.adSoyad = adSoyad;
+        this.adSoyad = adSoyad.toUpperCase();
     }
 
     public String getKimlikNo() {
@@ -32,6 +32,7 @@ public class Kisi {
        }else  {
            this.kimlikNo = kimlikNo;
        }
+
     }
 
     public int getYaş() {
@@ -39,6 +40,9 @@ public class Kisi {
     }
 
     public void setYaş(int yaş) {
+       if (yaş<0){
+           yaş=-yaş;
+       }
         this.yaş = yaş;
     }
 }

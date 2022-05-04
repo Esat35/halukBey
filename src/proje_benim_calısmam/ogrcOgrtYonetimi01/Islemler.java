@@ -222,7 +222,7 @@ public class Islemler {
         scan.nextLine();
 
         if (kisiTuru.equalsIgnoreCase("ogrenci")) {
-            scan.nextLine();
+
             System.out.print("Eklenecek " + kisiTuru + " nin Ögrenci Numarası : ");
             String eklenecekOgrenciNo = scan.next();
             System.out.print("Eklenecek " + kisiTuru + " nin Sınıfı : ");

@@ -32,7 +32,7 @@ public class Ogrenci  extends Kisi{
     }
 
     public void setSınıf(String sınıf) {
-        this.sınıf = sınıf;
+        this.sınıf = sınıf.toUpperCase();
     }
 
     @Override
